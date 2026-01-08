@@ -1,6 +1,7 @@
 package com.marcelo;
 
 import java.awt.Graphics;
+
 import javax.swing.JPanel;
 
 public class Panel extends JPanel {
@@ -11,6 +12,8 @@ public class Panel extends JPanel {
 
     @Override
     protected void paintComponent(Graphics g) {
-
+        g.setFont(Config.PROMPT_FONT_OBJECT);
+        g.drawString(Config.PROMPT, Config.PROMPT_X, Config.PROMPT_Y);
+        
     }
 }
