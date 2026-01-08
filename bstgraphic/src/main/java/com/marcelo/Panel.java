@@ -15,5 +15,6 @@ public class Panel extends JPanel {
         g.setFont(Config.PROMPT_FONT_OBJECT);
         g.drawString(Config.PROMPT, Config.PROMPT_X, Config.PROMPT_Y);
         
+
     }
 }
