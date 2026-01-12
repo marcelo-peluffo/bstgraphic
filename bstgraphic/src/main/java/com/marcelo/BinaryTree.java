@@ -11,9 +11,4 @@ public class BinaryTree {
         rootNode = newRootNode;
     }
 
-    public boolean addValue(Comparable<?> newValue) {
-        
-
-        return false;
-    }
 }

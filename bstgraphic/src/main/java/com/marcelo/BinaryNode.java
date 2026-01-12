@@ -3,9 +3,9 @@ package com.marcelo;
 // class implementation of binary node
 public class BinaryNode {
     private BinaryNode left, right;
-    private Comparable<?> value;
+    private int value;
 
-    protected BinaryNode(Comparable v) {
+    protected BinaryNode(int v) {
         left = null;
         right = null;
         value = v;
@@ -13,9 +13,9 @@ public class BinaryNode {
     
     public BinaryNode left() {return left;}
     public BinaryNode right() {return right;}
-    public Comparable<?> value() {return value;}
+    public int value() {return value;}
 
     public void setLeftTo(BinaryNode newLeftNode) {left = newLeftNode;}
     public void setRightTo(BinaryNode newRightNode) {right = newRightNode;}
-    public void setValueTo(Comparable<?> newValue) {value = newValue;}
+    public void setValueTo(int newValue) {value = newValue;}
 }
