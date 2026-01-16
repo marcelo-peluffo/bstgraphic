@@ -10,7 +10,7 @@ public class Config {
     public static final String PROMPT_FONT_NAME = "Consolas";
     public static final Font PROMPT_FONT_OBJECT;
     public static final Queue<Integer> numberList;
-    public static final BinaryTree tree;
+    public static final BinarySearchTree tree;
 
     public static final int PROMPT_X = 650;
     public static final int PROMPT_Y = 150;
@@ -26,6 +26,6 @@ public class Config {
     static {
         PROMPT_FONT_OBJECT = new Font(PROMPT_FONT_NAME, PROMPT_STYLE, PROMPT_FONT_SIZE);
         numberList = new LinkedList<>();
-        tree = new BinaryTree();
+        tree = new BinarySearchTree();
     }
 }

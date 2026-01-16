@@ -5,11 +5,11 @@ import static java.lang.System.*;
 
 @SuppressWarnings("unchecked")
 
-public abstract class BinarySearchTree2
+public abstract class BinarySearchTree
 {
 	private BinaryNode root;
 	
-	public BinarySearchTree2()
+	public BinarySearchTree()
 	{
 		root = null;
 	}
