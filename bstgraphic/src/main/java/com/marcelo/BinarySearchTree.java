@@ -5,7 +5,7 @@ import static java.lang.System.*;
 
 @SuppressWarnings("unchecked")
 
-public abstract class BinarySearchTree
+public class BinarySearchTree
 {
 	private BinaryNode root;
 	
@@ -439,7 +439,7 @@ public abstract class BinarySearchTree
 		return remove(root,target);
 	}
 	
-	public abstract BinaryNode remove(BinaryNode startNode, Comparable target);
+	public BinaryNode remove(BinaryNode startNode, Comparable target) {return null;}
 	
 }
 

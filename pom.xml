@@ -14,7 +14,7 @@
     </properties>
 
     <build>
-        <sourceDirectory>${basedir}/src/main/java</sourceDirectory>
+        <sourceDirectory>bstgraphic/src/main/java</sourceDirectory>
     </build>
 
 </project>
