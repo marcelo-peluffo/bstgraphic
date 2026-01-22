@@ -6,12 +6,22 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
+/**
+ * The visual panel for the graphic BST.
+ * @author Marcelo
+ */
 public class Panel extends JPanel implements KeyListener {
-    
+    /**
+     * Default constructor that adds a key listener
+     */
     protected Panel() {
         addKeyListener(this);
     }
 
+    /**
+     * Method to render updates to the graphical application
+     * @param g the <code>Graphics</code> object to protect
+     */
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -22,6 +32,10 @@ public class Panel extends JPanel implements KeyListener {
 
     }
 
+    /**
+     * Update number queue whenever the user inputs a key
+     * @param e the event to be processed
+     */
     @Override
     public void keyPressed(KeyEvent e) {
         int numberPressed = Character.getNumericValue(e.getKeyCode());
