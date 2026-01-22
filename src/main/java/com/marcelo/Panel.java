@@ -30,6 +30,7 @@ public class Panel extends JPanel implements KeyListener {
         g.drawString(Config.PROMPT, Config.PROMPT_X, Config.PROMPT_Y);
         g.drawString(Config.numberList.toString(), Config.NUMBER_LIST_X, Config.NUMBER_LIST_Y);
 
+
     }
 
     /**
