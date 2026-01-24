@@ -9,7 +9,7 @@
 -source
 '17'
 -sourcepath
-'C:/Users/Marce/IdeaProjects/bstgraphic/bstgraphic/src/main/java'
+'C:/Users/Marce/IdeaProjects/bstgraphic/src/main/java'
 -author
 -bottom
 'Copyright &#169; 2026. All rights reserved.'
@@ -26,19 +26,19 @@
 -windowtitle
 'bstgraphic 1.0-SNAPSHOT API'
 com.marcelo
-C:\Users\Marce\IdeaProjects\bstgraphic\bstgraphic\src\main\java = 1768948564836
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\allclasses-index.html = 1769041631555
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\allpackages-index.html = 1769041631556
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\constant-values.html = 1769041631511
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\element-list = 1769041631497
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\help-doc.html = 1769041631577
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\index-all.html = 1769041631571
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\index.html = 1769041631575
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\member-search-index.js = 1769041631561
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\module-search-index.js = 1769041631557
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\overview-tree.html = 1769041631545
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\package-search-index.js = 1769041631558
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\search.html = 1769041631573
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\serialized-form.html = 1769041631517
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\tag-search-index.js = 1769041631562
-C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\type-search-index.js = 1769041631559
+C:\Users\Marce\IdeaProjects\bstgraphic\src\main\java = 1768948564836
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\allclasses-index.html = 1769042686191
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\allpackages-index.html = 1769042686193
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\constant-values.html = 1769042686150
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\element-list = 1769042686134
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\help-doc.html = 1769042686218
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\index-all.html = 1769042686213
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\index.html = 1769042686216
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\member-search-index.js = 1769042686198
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\module-search-index.js = 1769042686194
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\overview-tree.html = 1769042686182
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\package-search-index.js = 1769042686196
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\search.html = 1769042686214
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\serialized-form.html = 1769042686156
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\tag-search-index.js = 1769042686202
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\type-search-index.js = 1769042686197
