@@ -2,8 +2,14 @@ package com.marcelo.core;
 
 import javax.swing.*;
 
+/**
+ * The main frame of the application, which holds the {@link GraphicBSTPanel}.
+ */
 public class GraphicBSTFrame extends JFrame {
 
+    /**
+     * Constructs the main frame of the application.
+     */
     public GraphicBSTFrame() {
         super("Binary Search Tree Visualizer");
         init();

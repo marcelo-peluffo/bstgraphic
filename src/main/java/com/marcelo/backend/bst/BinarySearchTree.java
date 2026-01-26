@@ -2,22 +2,44 @@ package com.marcelo.backend.bst;
 
 import com.marcelo.backend.generic.Node;
 import com.marcelo.backend.generic.Tree;
+import com.marcelo.backend.observer.Observer;
+import com.marcelo.backend.observer.Subject;
 
-public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * A generic implementation of a Binary Search Tree.
+ *
+ * @param <T> the type of data stored in the tree, which must be comparable.
+ */
+public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subject {
     private Node<T> root;
+    private List<Observer> observers;
 
+    /**
+     * Constructs an empty BinarySearchTree.
+     */
     public BinarySearchTree() {
         this.root = null;
+        this.observers = new ArrayList<>();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Node<T> getRoot() {
         return root;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void insert(T value) {
         root = insert(root, value);
+        notifyObservers();
     }
 
     private Node<T> insert(Node<T> node, T value) {
@@ -34,9 +56,13 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         return node;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void delete(T value) {
         root = delete(root, value);
+        notifyObservers();
     }
 
     private Node<T> delete(Node<T> node, T value) {
@@ -71,6 +97,9 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         return minValue;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public Node<T> search(T value) {
         return search(root, value);
@@ -88,6 +117,9 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void inOrderTraversal() {
         inOrder(root);
@@ -101,6 +133,9 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void preOrderTraversal() {
         preOrder(root);
@@ -114,6 +149,9 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void postOrderTraversal() {
         postOrder(root);
@@ -124,6 +162,32 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
             postOrder(node.getLeft());
             postOrder(node.getRight());
             System.out.print(node.getValue() + " ");
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
         }
     }
 }
