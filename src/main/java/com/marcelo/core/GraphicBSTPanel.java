@@ -1,4 +1,6 @@
 package com.marcelo.core;
 
-public class GraphicBSTPanel {
+import javax.swing.*;
+
+public class GraphicBSTPanel extends JPanel {
 }
