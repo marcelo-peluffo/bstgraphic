@@ -20,7 +20,13 @@ jobs:
         distribution: 'temurin'
         cache: maven
         
-    - name: Run Maven Tests
-      run: mvn clean test
+    - name: Build + Package
+      run: mvn clean package
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: graphic-bst-jar
+        path: target/*.jar
 
 
