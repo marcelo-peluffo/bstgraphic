@@ -22,3 +22,8 @@ jobs:
         
     - name: Run Maven Tests
       run: mvn clean test
+
+    - name: Jar Runner File
+      run: mvn clean package
+
+
