@@ -1,0 +1,53 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+--no-fonts
+-encoding
+'UTF-8'
+-protected
+-source
+'17'
+-sourcepath
+'C:/Users/Marce/IdeaProjects/bstgraphic/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Marce/IdeaProjects/bstgraphic/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'bstgraphic 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'bstgraphic 1.0-SNAPSHOT API'
+com.marcelo.backend.bst
+com.marcelo.backend.generic
+com.marcelo.backend.grid
+com.marcelo.backend.observer
+com.marcelo.core
+com.marcelo.ui.drawable
+com.marcelo.ui.input.button
+com.marcelo.ui.input.textbox
+com.marcelo.ui.misc
+com.marcelo.util
+C:\Users\Marce\IdeaProjects\bstgraphic\src\main\java = 1769452744042
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\allclasses-index.html = 1769461336875
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\allpackages-index.html = 1769461336877
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\element-list = 1769461336726
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\help-doc.html = 1769461336902
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\index-all.html = 1769461336896
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\index.html = 1769461336864
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\member-search-index.js = 1769461336882
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\module-search-index.js = 1769461336879
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\overview-summary.html = 1769461336899
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\overview-tree.html = 1769461336862
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\package-search-index.js = 1769461336880
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\search.html = 1769461336898
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\serialized-form.html = 1769461336788
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\tag-search-index.js = 1769461336883
+C:\Users\Marce\IdeaProjects\bstgraphic\target\reports\apidocs\type-search-index.js = 1769461336881
