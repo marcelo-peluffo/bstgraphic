@@ -2,8 +2,6 @@ package com.marcelo.backend.bst;
 
 import com.marcelo.backend.generic.Node;
 import com.marcelo.backend.generic.Tree;
-import com.marcelo.backend.observer.Observer;
-import com.marcelo.backend.observer.Subject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +11,14 @@ import java.util.List;
  *
  * @param <T> the type of data stored in the tree, which must be comparable.
  */
-public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subject {
+public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
-    private List<Observer> observers;
 
     /**
      * Constructs an empty BinarySearchTree.
      */
     public BinarySearchTree() {
         this.root = null;
-        this.observers = new ArrayList<>();
     }
 
     /**
@@ -39,7 +35,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subje
     @Override
     public void insert(T value) {
         root = insert(root, value);
-        notifyObservers();
     }
 
     private Node<T> insert(Node<T> node, T value) {
@@ -62,7 +57,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subje
     @Override
     public void delete(T value) {
         root = delete(root, value);
-        notifyObservers();
     }
 
     private Node<T> delete(Node<T> node, T value) {
@@ -162,32 +156,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subje
             postOrder(node.getLeft());
             postOrder(node.getRight());
             System.out.print(node.getValue() + " ");
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void addObserver(Observer observer) {
-        observers.add(observer);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update();
         }
     }
 }

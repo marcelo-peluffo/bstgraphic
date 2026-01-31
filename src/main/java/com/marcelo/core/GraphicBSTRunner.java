@@ -1,8 +1,6 @@
 package com.marcelo.core;
 
 import com.marcelo.backend.bst.BinarySearchTree;
-import com.marcelo.backend.observer.TreeVisualizer;
-import com.marcelo.backend.observer.Observer;
 
 /**
  * The runner file for the Graphic BST program for CSIII.
@@ -24,8 +22,7 @@ public class GraphicBSTRunner {
      */
     public static BinarySearchTree<Integer> initializeBST() {
         BinarySearchTree<Integer> bst = new BinarySearchTree<>();
-        TreeVisualizer<Integer> visualizer = new TreeVisualizer<>(bst);
-        bst.addObserver(visualizer);
+
         return bst;
     }
 }
