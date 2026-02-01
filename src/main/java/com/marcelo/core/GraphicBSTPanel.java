@@ -2,6 +2,7 @@ package com.marcelo.core;
 
 import com.marcelo.backend.bst.BinarySearchTree;
 import com.marcelo.backend.generic.Tree;
+import com.marcelo.ui.drawable.DrawableBinarySearchTreeNode;
 
 import javax.swing.*;
 
@@ -62,5 +63,6 @@ public class GraphicBSTPanel extends JPanel {
 
                 textbox.paintComponents(g);
                 addValueButton.paintComponents(g);
+                //drawableBST.drawNodes();
         }
 }
