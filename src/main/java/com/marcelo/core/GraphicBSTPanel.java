@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 public class GraphicBSTPanel extends JPanel {
         private JTextField textbox;
         private JButton addValueButton;
-        private Tree<Integer> bst;
+        private Tree<Integer> bst; // to be changed to drawable
 
         public GraphicBSTPanel() {
                 bst = new BinarySearchTree<>();

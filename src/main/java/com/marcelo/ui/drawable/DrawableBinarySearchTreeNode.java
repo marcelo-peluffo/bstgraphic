@@ -123,7 +123,7 @@ public class DrawableBinarySearchTreeNode<T extends Comparable<T>> implements Dr
          * {@inheritDoc}
          */
         @Override
-        public Node<T> getNode() {
+        public Node<T> getNode() { // the idea is getNode().[node methods as needed] (same for drawable tree)
                 return node;
         }
 
