@@ -7,5 +7,5 @@ import javax.swing.*;
  */
 public class GraphicBSTPanel extends JPanel {
         private JTextField textbox;
-        
+        private JButton addButton;
 }
