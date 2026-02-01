@@ -1,7 +1,11 @@
 package com.marcelo.core;
 
 import com.marcelo.backend.bst.BinarySearchTree;
+import com.marcelo.backend.generic.Tree;
+
 import javax.swing.*;
+
+import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,7 +15,7 @@ import java.awt.event.ActionListener;
 public class GraphicBSTPanel extends JPanel {
         private JTextField textbox;
         private JButton addValueButton;
-        private BinarySearchTree<Integer> bst;
+        private Tree<Integer> bst;
 
         public GraphicBSTPanel() {
                 bst = new BinarySearchTree<>();
@@ -48,7 +52,15 @@ public class GraphicBSTPanel extends JPanel {
                 });
         }
 
-        public BinarySearchTree<Integer> getBST() {
+        public Tree<Integer> getBST() {
                 return bst;
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+                textbox.paintComponents(g);
+                addValueButton.paintComponents(g);
         }
 }
