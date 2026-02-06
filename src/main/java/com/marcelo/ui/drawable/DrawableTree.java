@@ -23,4 +23,6 @@ public interface DrawableTree<T extends Comparable<T>> {
          * @return the backend tree.
          */
         Tree<T> getTree();
+
+        void insert(T value);
 }

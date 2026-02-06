@@ -1,8 +1,7 @@
 package com.marcelo.core;
 
 import com.marcelo.backend.bst.BinarySearchTree;
-import com.marcelo.backend.generic.Tree;
-import com.marcelo.ui.drawable.DrawableBinarySearchTreeNode;
+import com.marcelo.ui.drawable.DrawableBinarySearchTree;
 
 import javax.swing.*;
 
@@ -16,10 +15,10 @@ import java.awt.event.ActionListener;
 public class GraphicBSTPanel extends JPanel {
         private JTextField textbox;
         private JButton addValueButton;
-        private Tree<Integer> bst; // to be changed to drawable
+        private DrawableBinarySearchTree<Integer> drawableBST;
 
         public GraphicBSTPanel() {
-                bst = new BinarySearchTree<>();
+                drawableBST = new DrawableBinarySearchTree<>();
                 initializeComponents();
                 setupListeners();
         }
@@ -40,8 +39,9 @@ public class GraphicBSTPanel extends JPanel {
                                 if (!input.isEmpty()) {
                                         try {
                                                 int value = Integer.parseInt(input);
-                                                bst.insert(value);
+                                                drawableBST.insert(value);
                                                 textbox.setText(""); // Clear the text field
+                                                repaint();
                                         } catch (NumberFormatException ex) {
                                                 JOptionPane.showMessageDialog(GraphicBSTPanel.this,
                                                                 "Please enter a valid integer.",
@@ -53,16 +53,10 @@ public class GraphicBSTPanel extends JPanel {
                 });
         }
 
-        public Tree<Integer> getBST() {
-                return bst;
-        }
-
         @Override
         protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
 
-                textbox.paintComponents(g);
-                addValueButton.paintComponents(g);
-                //drawableBST.drawNodes();
+                drawableBST.paintNodes(g);
         }
 }
