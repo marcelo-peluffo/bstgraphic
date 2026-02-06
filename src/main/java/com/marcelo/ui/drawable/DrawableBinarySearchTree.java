@@ -17,9 +17,9 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
         public DrawableBinarySearchTree() {
                 backendBst = new BinarySearchTree<>();
                 root = null;
-                rootX = 700;
-                rootY = 100;
-                horizontalSpacing = 250;
+                rootX = 960;
+                rootY = 200;
+                horizontalSpacing = 400;
                 radius = 20;
         }
 
