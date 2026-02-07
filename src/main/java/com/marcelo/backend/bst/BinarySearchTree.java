@@ -2,12 +2,6 @@ package com.marcelo.backend.bst;
 
 import com.marcelo.backend.generic.Node;
 import com.marcelo.backend.generic.Tree;
-<<<<<<< HEAD
-
-import java.util.ArrayList;
-import java.util.List;
-=======
->>>>>>> bd0688da789a70aa836a49c0422d268d8af03d10
 
 /**
  * A generic implementation of a Binary Search Tree.
@@ -16,18 +10,13 @@ import java.util.List;
  */
 public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
-<<<<<<< HEAD
-=======
     private int maxDepth; // Maximum depth allowed (0-indexed, so 4 = 5 levels)
->>>>>>> bd0688da789a70aa836a49c0422d268d8af03d10
 
     /**
      * Constructs an empty BinarySearchTree with no depth limit.
      */
     public BinarySearchTree() {
         this.root = null;
-<<<<<<< HEAD
-=======
         this.maxDepth = 10; // No limit by default
     }
 
@@ -39,7 +28,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     public BinarySearchTree(int maxDepth) {
         this.root = null;
         this.maxDepth = maxDepth;
->>>>>>> bd0688da789a70aa836a49c0422d268d8af03d10
     }
 
     /**
@@ -64,11 +52,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
      */
     @Override
     public void insert(T value) {
-<<<<<<< HEAD
-        root = insert(root, value);
-=======
         root = insert(root, value, 0);
->>>>>>> bd0688da789a70aa836a49c0422d268d8af03d10
     }
 
     private Node<T> insert(Node<T> node, T value, int depth) {
