@@ -1,7 +1,5 @@
 package com.marcelo.core;
 
-import com.marcelo.backend.bst.BinarySearchTree;
-
 /**
  * The runner file for the Graphic BST program for CSIII.
  * @author Marcelo
