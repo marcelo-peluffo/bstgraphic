@@ -77,14 +77,14 @@ public class DrawableBinarySearchTreeNode<T extends Comparable<T>> implements Dr
                 if (node.getLeft() != null) {
                         int leftX = x - horizontalSpacing;
                         int leftY = y + verticalSpacing;
-                        g2d.setColor(Color.BLACK);
+                        g2d.setColor(Color.GREEN);
                         g2d.drawLine(x, y, leftX, leftY);
                 }
 
                 if (node.getRight() != null) {
                         int rightX = x + horizontalSpacing;
                         int rightY = y + verticalSpacing;
-                        g2d.setColor(Color.BLACK);
+                        g2d.setColor(Color.GREEN);
                         g2d.drawLine(x, y, rightX, rightY);
                 }
 
