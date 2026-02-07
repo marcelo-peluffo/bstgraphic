@@ -2,27 +2,32 @@ package com.marcelo.backend.bst;
 
 import com.marcelo.backend.generic.Node;
 import com.marcelo.backend.generic.Tree;
-import com.marcelo.backend.observer.Observer;
-import com.marcelo.backend.observer.Subject;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * A generic implementation of a Binary Search Tree.
  *
  * @param <T> the type of data stored in the tree, which must be comparable.
  */
-public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subject {
+public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
-    private List<Observer> observers;
+    private int maxDepth; // Maximum depth allowed (0-indexed, so 4 = 5 levels)
 
     /**
-     * Constructs an empty BinarySearchTree.
+     * Constructs an empty BinarySearchTree with no depth limit.
      */
     public BinarySearchTree() {
         this.root = null;
-        this.observers = new ArrayList<>();
+        this.maxDepth = 10; // No limit by default
+    }
+
+    /**
+     * Constructs an empty BinarySearchTree with a maximum depth limit.
+     *
+     * @param maxDepth the maximum depth allowed (0-indexed, so 4 = 5 levels)
+     */
+    public BinarySearchTree(int maxDepth) {
+        this.root = null;
+        this.maxDepth = maxDepth;
     }
 
     /**
@@ -34,23 +39,35 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subje
     }
 
     /**
+     * Sets the maximum depth allowed in the tree.
+     *
+     * @param maxDepth the maximum depth (0-indexed, so 4 = 5 levels)
+     */
+    public void setMaxDepth(int maxDepth) {
+        this.maxDepth = maxDepth;
+    }
+
+    /**
      * {@inheritDoc}
      */
     @Override
     public void insert(T value) {
-        root = insert(root, value);
-        notifyObservers();
+        root = insert(root, value, 0);
     }
 
-    private Node<T> insert(Node<T> node, T value) {
+    private Node<T> insert(Node<T> node, T value, int depth) {
         if (node == null) {
+            // Check if we've exceeded max depth before creating a new node
+            if (depth > maxDepth) {
+                return null; // Reject insertion beyond max depth
+            }
             return new BinarySearchTreeNode<>(value);
         }
 
         if (value.compareTo(node.getValue()) < 0) {
-            node.setLeft(insert(node.getLeft(), value));
+            node.setLeft(insert(node.getLeft(), value, depth + 1));
         } else if (value.compareTo(node.getValue()) > 0) {
-            node.setRight(insert(node.getRight(), value));
+            node.setRight(insert(node.getRight(), value, depth + 1));
         }
 
         return node;
@@ -62,7 +79,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subje
     @Override
     public void delete(T value) {
         root = delete(root, value);
-        notifyObservers();
     }
 
     private Node<T> delete(Node<T> node, T value) {
@@ -162,32 +178,6 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T>, Subje
             postOrder(node.getLeft());
             postOrder(node.getRight());
             System.out.print(node.getValue() + " ");
-        }
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void addObserver(Observer observer) {
-        observers.add(observer);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void notifyObservers() {
-        for (Observer observer : observers) {
-            observer.update();
         }
     }
 }
