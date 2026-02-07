@@ -1,20 +1,21 @@
 package com.marcelo.core;
 
-import com.marcelo.backend.bst.BinarySearchTree;
 import com.marcelo.ui.drawable.DrawableBinarySearchTree;
+import com.marcelo.ui.input.VisualComponent;
+import com.marcelo.ui.input.button.AddButton;
+import com.marcelo.ui.input.textbox.Textbox;
 
 import javax.swing.*;
 
 import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The panel where the binary search tree is drawn.
  */
 public class GraphicBSTPanel extends JPanel {
-        private JTextField textbox;
-        private JButton addValueButton;
+        private List<VisualComponent> visualComponents;
         private DrawableBinarySearchTree<Integer> drawableBST;
 
         public GraphicBSTPanel() {
@@ -24,33 +25,25 @@ public class GraphicBSTPanel extends JPanel {
         }
 
         private void initializeComponents() {
-                textbox = new JTextField(10);
-                addValueButton = new JButton("Add");
-
-                add(textbox);
-                add(addValueButton);
+                visualComponents = new ArrayList<>();
+                Textbox valueTextbox = new Textbox(10);
+                visualComponents.add(valueTextbox);
+                visualComponents.add(new AddButton(valueTextbox));
         }
 
         private void setupListeners() {
-                addValueButton.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                                String input = textbox.getText().trim();
-                                if (!input.isEmpty()) {
-                                        try {
-                                                int value = Integer.parseInt(input);
-                                                drawableBST.insert(value);
-                                                textbox.setText(""); // Clear the text field
-                                                repaint();
-                                        } catch (NumberFormatException ex) {
-                                                JOptionPane.showMessageDialog(GraphicBSTPanel.this,
-                                                                "Please enter a valid integer.",
-                                                                "Invalid Input",
-                                                                JOptionPane.ERROR_MESSAGE);
-                                        }
-                                }
-                        }
-                });
+                for (VisualComponent visualComponent : visualComponents) {
+                        add(visualComponent.getComponent());
+                        visualComponent.initializeListeners(this);
+                }
+        }
+
+        public void insertValue(Integer value) {
+                if (value == null) {
+                        return;
+                }
+                drawableBST.insert(value);
+                repaint();
         }
 
         @Override
