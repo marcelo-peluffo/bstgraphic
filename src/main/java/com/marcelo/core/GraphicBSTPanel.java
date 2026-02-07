@@ -8,14 +8,17 @@ import com.marcelo.ui.input.button.DeleteButton;
 import com.marcelo.ui.input.textbox.Textbox;
 
 import javax.swing.*;
+import javax.imageio.ImageIO;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.Rectangle;
+import java.awt.image.BufferedImage;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +30,12 @@ public class GraphicBSTPanel extends JPanel {
         private DrawableTree<Integer> drawableBST;
         private GraphicBSTFrame frame;
         private Rectangle backButtonBounds;
+        private BufferedImage backgroundImage;
 
         public GraphicBSTPanel(GraphicBSTFrame frame) {
                 this.frame = frame;
                 drawableBST = new DrawableBinarySearchTree<>();
+                loadBackgroundImage();
                 initializeComponents();
                 setupListeners();
                 setupMouseListener();
@@ -45,6 +50,15 @@ public class GraphicBSTPanel extends JPanel {
                                 }
                         }
                 });
+        }
+
+        private void loadBackgroundImage() {
+                try {
+                        backgroundImage = ImageIO.read(getClass().getClassLoader()
+                                        .getResource("images/Background.jpg"));
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
         }
 
         private void initializeComponents() {
@@ -83,11 +97,19 @@ public class GraphicBSTPanel extends JPanel {
                 super.paintComponent(g);
                 Graphics2D g2d = (Graphics2D) g;
 
+                int width = getWidth();
+                int height = getHeight();
+
+                // Draw background image
+                if (backgroundImage != null) {
+                        g2d.drawImage(backgroundImage, 0, 0, width, height, this);
+                }
+
                 drawableBST.paintNodes(g);
 
                 // Draw Back Button
-                int width = getWidth();
-                int height = getHeight();
+                // int width = getWidth();
+                // int height = getHeight();
                 String buttonText = "Keybinds";
                 g2d.setFont(new Font("Arial", Font.BOLD, 18));
                 int buttonWidth = 100;
