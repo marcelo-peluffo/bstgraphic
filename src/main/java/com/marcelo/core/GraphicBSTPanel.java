@@ -53,7 +53,7 @@ public class GraphicBSTPanel extends JPanel {
                 if (value == null) {
                         return;
                 }
-                drawableBST.getTree().delete(value);
+                drawableBST.delete(value);
                 repaint();
         }
 

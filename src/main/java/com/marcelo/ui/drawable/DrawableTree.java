@@ -25,4 +25,5 @@ public interface DrawableTree<T extends Comparable<T>> {
         Tree<T> getTree();
 
         void insert(T value);
+        void delete(T value);
 }
