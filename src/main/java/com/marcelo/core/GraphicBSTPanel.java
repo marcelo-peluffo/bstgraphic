@@ -10,6 +10,12 @@ import com.marcelo.ui.input.textbox.Textbox;
 import javax.swing.*;
 
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Font;
+import java.awt.Color;
+import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,11 +25,26 @@ import java.util.List;
 public class GraphicBSTPanel extends JPanel {
         private List<VisualComponent> visualComponents;
         private DrawableTree<Integer> drawableBST;
+        private GraphicBSTFrame frame;
+        private Rectangle backButtonBounds;
 
-        public GraphicBSTPanel() {
+        public GraphicBSTPanel(GraphicBSTFrame frame) {
+                this.frame = frame;
                 drawableBST = new DrawableBinarySearchTree<>();
                 initializeComponents();
                 setupListeners();
+                setupMouseListener();
+        }
+
+        private void setupMouseListener() {
+                addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                                if (backButtonBounds != null && backButtonBounds.contains(e.getPoint())) {
+                                        frame.switchToPanel(new GraphicBSTIntroPanel(frame));
+                                }
+                        }
+                });
         }
 
         private void initializeComponents() {
@@ -60,7 +81,35 @@ public class GraphicBSTPanel extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g;
 
                 drawableBST.paintNodes(g);
+
+                // Draw Back Button
+                int width = getWidth();
+                int height = getHeight();
+                String buttonText = "Keybinds";
+                g2d.setFont(new Font("Arial", Font.BOLD, 18));
+                int buttonWidth = 100;
+                int buttonHeight = 40;
+                int buttonX = width - buttonWidth - 20;
+                int buttonY = height - buttonHeight - 20;
+                backButtonBounds = new Rectangle(buttonX, buttonY, buttonWidth, buttonHeight);
+
+                // Draw button background
+                g2d.setColor(new Color(50, 100, 150));
+                g2d.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+
+                // Draw button border
+                g2d.setColor(new Color(0, 0, 0));
+                g2d.setStroke(new java.awt.BasicStroke(2));
+                g2d.drawRect(buttonX, buttonY, buttonWidth, buttonHeight);
+
+                // Draw button text
+                int textWidth = g2d.getFontMetrics().stringWidth(buttonText);
+                int textHeight = g2d.getFontMetrics().getAscent();
+                g2d.setColor(new Color(255, 255, 255));
+                g2d.drawString(buttonText, buttonX + (buttonWidth - textWidth) / 2,
+                                buttonY + (buttonHeight + textHeight) / 2);
         }
 }
