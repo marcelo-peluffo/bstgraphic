@@ -3,8 +3,11 @@ package com.marcelo.ui.input.button;
 import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
+import java.awt.Font;
 
 import com.marcelo.core.GraphicBSTPanel;
 import com.marcelo.ui.input.VisualComponent;
@@ -17,6 +20,16 @@ public class AddButton implements VisualComponent {
         public AddButton(Textbox valueTextbox) {
                 this.valueTextbox = valueTextbox;
                 addValueButton = new JButton("Add");
+                styleButton();
+        }
+
+        private void styleButton() {
+                addValueButton.setBackground(new Color(50, 100, 150));
+                addValueButton.setForeground(Color.WHITE);
+                addValueButton.setFont(new Font("Arial", Font.BOLD, 14));
+                addValueButton.setFocusPainted(false);
+                addValueButton.setOpaque(true);
+                addValueButton.setBorderPainted(true);
         }
 
         @Override
