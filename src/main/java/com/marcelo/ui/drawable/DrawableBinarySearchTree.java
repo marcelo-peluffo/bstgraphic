@@ -19,7 +19,7 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 root = null;
                 rootX = 960;
                 rootY = 200;
-                horizontalSpacing = 400;
+                horizontalSpacing = 450;
                 radius = 20;
         }
 

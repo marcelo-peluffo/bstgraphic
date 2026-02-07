@@ -17,7 +17,7 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
      */
     public BinarySearchTree() {
         this.root = null;
-        this.maxDepth = 5; // No limit by default
+        this.maxDepth = 10; // No limit by default
     }
 
     /**
