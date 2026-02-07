@@ -1,7 +1,10 @@
 package com.marcelo.ui.input.textbox;
 
 import javax.swing.JComponent;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import com.marcelo.core.GraphicBSTPanel;
 import com.marcelo.ui.input.VisualComponent;
@@ -28,6 +31,26 @@ public class Textbox implements VisualComponent {
 
         @Override
         public void initializeListeners(GraphicBSTPanel panel) {
-                // Text fields can register listeners here if needed.
+                // When Enter is pressed, insert the value
+                textField.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                                String rawValue = getText();
+                                if (rawValue == null || rawValue.trim().isEmpty()) {
+                                        return;
+                                }
+
+                                try {
+                                        int value = Integer.parseInt(rawValue.trim());
+                                        panel.insertValue(value);
+                                        clear();
+                                } catch (NumberFormatException ex) {
+                                        JOptionPane.showMessageDialog(panel,
+                                                        "Please enter a valid integer.",
+                                                        "Invalid Input",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                }
+                        }
+                });
         }
 }
