@@ -91,7 +91,7 @@ public class GraphicBSTIntroPanel extends JPanel {
                 }
 
                 // Draw Start Button
-                String buttonText = "Start";
+                String buttonText = "Go To Tree";
                 g2d.setFont(new Font("Arial", Font.BOLD, 24));
                 int buttonWidth = 150;
                 int buttonHeight = 50;
