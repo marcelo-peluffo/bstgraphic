@@ -3,9 +3,6 @@ package com.marcelo.backend.bst;
 import com.marcelo.backend.generic.Node;
 import com.marcelo.backend.generic.Tree;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * A generic implementation of a Binary Search Tree.
  *
