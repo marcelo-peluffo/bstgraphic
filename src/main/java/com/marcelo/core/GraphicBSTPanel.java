@@ -46,7 +46,7 @@ public class GraphicBSTPanel extends JPanel {
                         @Override
                         public void mouseClicked(MouseEvent e) {
                                 if (backButtonBounds != null && backButtonBounds.contains(e.getPoint())) {
-                                        frame.switchToPanel(new GraphicBSTIntroPanel(frame));
+                                        frame.switchToPanel(frame.getBstIntroPanel());
                                 }
                         }
                 });
