@@ -22,7 +22,7 @@ public class GraphicBSTIntroPanel extends JPanel {
         private void loadBackgroundImage() {
                 try {
                         backgroundImage = ImageIO.read(getClass().getClassLoader()
-                                        .getResource(""));
+                                        .getResource("images/Background.jpg"));
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
@@ -44,21 +44,21 @@ public class GraphicBSTIntroPanel extends JPanel {
 
                 // Title
                 g2d.setFont(new Font("Arial", Font.BOLD, 50));
-                g2d.setColor(new Color(33, 33, 33));
+                g2d.setColor(new Color(255, 255, 255));
                 String title = "Marcelo's Binary Search Tree Visualizer";
                 int titleWidth = g2d.getFontMetrics().stringWidth(title);
                 g2d.drawString(title, (width - titleWidth) / 2, 60);
 
                 // Keybinds title
                 g2d.setFont(new Font("Arial", Font.BOLD, 30));
-                g2d.setColor(new Color(50, 100, 150));
+                g2d.setColor(new Color(255, 255, 255));
                 String keybindsTitle = "Keybinds:";
                 int keybindsTitleWidth = g2d.getFontMetrics().stringWidth(keybindsTitle);
                 g2d.drawString(keybindsTitle, (width - keybindsTitleWidth) / 2, 175);
 
                 // Keybinds
                 g2d.setFont(new Font("Courier New", Font.PLAIN, 25));
-                g2d.setColor(new Color(33, 33, 33));
+                g2d.setColor(new Color(255, 255, 255));
                 String[] keybinds = {
                                 "ENTER   -    ADD a new node to the tree",
                                 "DELETE  -    REMOVE a selected node from the tree",
