@@ -5,6 +5,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 import com.marcelo.core.GraphicBSTPanel;
 import com.marcelo.ui.input.VisualComponent;
@@ -49,6 +51,31 @@ public class Textbox implements VisualComponent {
                                                         "Please enter a valid integer.",
                                                         "Invalid Input",
                                                         JOptionPane.ERROR_MESSAGE);
+                                }
+                        }
+                });
+
+                // When Delete key is pressed, delete the value
+                textField.addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyPressed(KeyEvent e) {
+                                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                                        e.consume(); // Prevent the system beep
+                                        String rawValue = getText();
+                                        if (rawValue == null || rawValue.trim().isEmpty()) {
+                                                return;
+                                        }
+
+                                        try {
+                                                int value = Integer.parseInt(rawValue.trim());
+                                                panel.deleteValue(value);
+                                                clear();
+                                        } catch (NumberFormatException ex) {
+                                                JOptionPane.showMessageDialog(panel,
+                                                                "Please enter a valid integer.",
+                                                                "Invalid Input",
+                                                                JOptionPane.ERROR_MESSAGE);
+                                        }
                                 }
                         }
                 });
