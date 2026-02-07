@@ -3,6 +3,7 @@ package com.marcelo.core;
 import com.marcelo.ui.drawable.DrawableBinarySearchTree;
 import com.marcelo.ui.input.VisualComponent;
 import com.marcelo.ui.input.button.AddButton;
+import com.marcelo.ui.input.button.DeleteButton;
 import com.marcelo.ui.input.textbox.Textbox;
 
 import javax.swing.*;
@@ -29,6 +30,7 @@ public class GraphicBSTPanel extends JPanel {
                 Textbox valueTextbox = new Textbox(10);
                 visualComponents.add(valueTextbox);
                 visualComponents.add(new AddButton(valueTextbox));
+                visualComponents.add(new DeleteButton(valueTextbox));
         }
 
         private void setupListeners() {
@@ -43,6 +45,14 @@ public class GraphicBSTPanel extends JPanel {
                         return;
                 }
                 drawableBST.insert(value);
+                repaint();
+        }
+
+        public void deleteValue(Integer value) {
+                if (value == null) {
+                        return;
+                }
+                drawableBST.delete(value);
                 repaint();
         }
 
