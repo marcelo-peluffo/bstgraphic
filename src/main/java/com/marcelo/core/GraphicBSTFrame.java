@@ -19,9 +19,16 @@ public class GraphicBSTFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(1920, 800);
-        add(new GraphicBSTIntroPanel());
+        add(new GraphicBSTIntroPanel(this));
         setLocationRelativeTo(null);
         setVisible(true);
+    }
+
+    public void switchToPanel(JPanel newPanel) {
+        getContentPane().removeAll();
+        getContentPane().add(newPanel);
+        getContentPane().revalidate();
+        getContentPane().repaint();
     }
 
 }

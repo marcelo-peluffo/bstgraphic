@@ -7,16 +7,34 @@ import java.awt.Graphics2D;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.RenderingHints;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 
 public class GraphicBSTIntroPanel extends JPanel {
 
         private BufferedImage backgroundImage;
+        private GraphicBSTFrame frame;
+        private Rectangle buttonBounds;
 
-        public GraphicBSTIntroPanel() {
+        public GraphicBSTIntroPanel(GraphicBSTFrame frame) {
+                this.frame = frame;
                 setBackground(new Color(245, 245, 245));
                 loadBackgroundImage();
+                setupMouseListener();
+        }
+
+        private void setupMouseListener() {
+                addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                                if (buttonBounds != null && buttonBounds.contains(e.getPoint())) {
+                                        frame.switchToPanel(new GraphicBSTPanel());
+                                }
+                        }
+                });
         }
 
         private void loadBackgroundImage() {
@@ -71,5 +89,30 @@ public class GraphicBSTIntroPanel extends JPanel {
                         g2d.drawString(keybind, startX, y);
                         y += 70;
                 }
+
+                // Draw Start Button
+                String buttonText = "Start";
+                g2d.setFont(new Font("Arial", Font.BOLD, 24));
+                int buttonWidth = 150;
+                int buttonHeight = 50;
+                int buttonX = (width - buttonWidth) / 2;
+                int buttonY = 650;
+                buttonBounds = new Rectangle(buttonX, buttonY, buttonWidth, buttonHeight);
+
+                // Draw button background
+                g2d.setColor(new Color(50, 100, 150));
+                g2d.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+
+                // Draw button border
+                g2d.setColor(new Color(255, 255, 255));
+                g2d.setStroke(new java.awt.BasicStroke(2));
+                g2d.drawRect(buttonX, buttonY, buttonWidth, buttonHeight);
+
+                // Draw button text
+                int textWidth = g2d.getFontMetrics().stringWidth(buttonText);
+                int textHeight = g2d.getFontMetrics().getAscent();
+                g2d.setColor(new Color(255, 255, 255));
+                g2d.drawString(buttonText, buttonX + (buttonWidth - textWidth) / 2,
+                                buttonY + (buttonHeight + textHeight) / 2);
         }
 }
