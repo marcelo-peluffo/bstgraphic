@@ -1,16 +1,31 @@
 package com.marcelo.core;
 
 import javax.swing.JPanel;
+import javax.imageio.ImageIO;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.RenderingHints;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
 public class GraphicBSTIntroPanel extends JPanel {
 
+        private BufferedImage backgroundImage;
+
         public GraphicBSTIntroPanel() {
                 setBackground(new Color(245, 245, 245));
+                loadBackgroundImage();
+        }
+
+        private void loadBackgroundImage() {
+                try {
+                        backgroundImage = ImageIO.read(getClass().getClassLoader()
+                                        .getResource(""));
+                } catch (IOException e) {
+                        e.printStackTrace();
+                }
         }
 
         @Override
@@ -21,6 +36,11 @@ public class GraphicBSTIntroPanel extends JPanel {
 
                 int width = getWidth();
                 int height = getHeight();
+
+                // Draw background image
+                if (backgroundImage != null) {
+                        g2d.drawImage(backgroundImage, 0, 0, width, height, this);
+                }
 
                 // Title
                 g2d.setFont(new Font("Arial", Font.BOLD, 50));
