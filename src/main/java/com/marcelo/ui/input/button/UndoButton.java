@@ -46,7 +46,7 @@ public class UndoButton implements VisualComponent {
 
                                 try {
                                         int value = Integer.parseInt(rawValue.trim());
-                                        panel.insertValue(value);
+                                        panel.undoValue(value);
                                         valueTextbox.clear();
                                 } catch (NumberFormatException ex) {
                                         JOptionPane.showMessageDialog(panel,

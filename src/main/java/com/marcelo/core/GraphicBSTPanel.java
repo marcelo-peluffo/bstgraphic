@@ -92,6 +92,15 @@ public class GraphicBSTPanel extends JPanel {
                 repaint();
         }
 
+        public void undoValue(Integer value) {
+                if (value == null) {
+                        return;
+                }
+                drawableBST.delete(value);
+                repaint();
+        }
+
+
         @Override
         protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
