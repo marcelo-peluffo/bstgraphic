@@ -8,6 +8,7 @@ import com.marcelo.backend.generic.Tree;
 
 public class DrawableBinarySearchTree<T extends Comparable<T>> implements DrawableTree<T> {
         private Tree<T> backendBst;
+        private Tree<T> previousBackendBst;
         private DrawableNode<T> root;
         private int rootX;
         private int rootY;
@@ -16,6 +17,7 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
 
         public DrawableBinarySearchTree() {
                 backendBst = new BinarySearchTree<>();
+                previousBackendBst = null;
                 root = null;
                 rootX = 960;
                 rootY = 200;
