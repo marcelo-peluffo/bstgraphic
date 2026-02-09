@@ -55,7 +55,7 @@ public class GraphicBSTPanel extends JPanel {
         private void loadBackgroundImage() {
                 try {
                         backgroundImage = ImageIO.read(getClass().getClassLoader()
-                                        .getResource("images/Background.jpg"));
+                                        .getResourceAsStream("images/Background.jpg"));
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
