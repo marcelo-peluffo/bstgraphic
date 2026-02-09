@@ -55,6 +55,7 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 }
                 backendBst = previousBackendBst;
                 previousBackendBst = null;
+                rebuildRoot();
         }
 
         @Override

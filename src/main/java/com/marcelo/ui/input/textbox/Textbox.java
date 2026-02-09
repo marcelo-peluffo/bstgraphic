@@ -77,6 +77,24 @@ public class Textbox implements VisualComponent {
                                                                 JOptionPane.ERROR_MESSAGE);
                                         }
                                 }
+                                else if (e.getKeyCode() == KeyEvent.VK_TAB) {
+                                        e.consume(); // Prevent the system beep
+                                        String rawValue = getText();
+                                        if (rawValue == null || rawValue.trim().isEmpty()) {
+                                                return;
+                                        }
+
+                                        try {
+                                                int value = Integer.parseInt(rawValue.trim());
+                                                panel.undoValue(value);
+                                                clear();
+                                        } catch (NumberFormatException ex) {
+                                                JOptionPane.showMessageDialog(panel,
+                                                        "Please enter a valid integer.",
+                                                        "Invalid Input",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        }
+                                }
                         }
                 });
         }

@@ -98,7 +98,7 @@ public class GraphicBSTPanel extends JPanel {
                 if (value == null) {
                         return;
                 }
-                drawableBST.delete(value);
+                drawableBST.undo(value);
                 repaint();
         }
 
