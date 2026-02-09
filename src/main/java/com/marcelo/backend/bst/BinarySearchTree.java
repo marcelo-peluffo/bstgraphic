@@ -3,6 +3,8 @@ package com.marcelo.backend.bst;
 import com.marcelo.backend.generic.Node;
 import com.marcelo.backend.generic.Tree;
 
+import java.util.Stack;
+
 /**
  * A generic implementation of a Binary Search Tree.
  *
@@ -11,6 +13,7 @@ import com.marcelo.backend.generic.Tree;
 public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     private Node<T> root;
     private int maxDepth; // Maximum depth allowed (0-indexed, so 4 = 5 levels)
+    private Stack<Tree<T>> history;
 
     /**
      * Constructs an empty BinarySearchTree with no depth limit.
