@@ -49,6 +49,14 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 rebuildRoot();
         }
 
+        public void undo(T value) {
+                if (backendBst == null) {
+                        return;
+                }
+                backendBst = previousBackendBst;
+                previousBackendBst = null;
+        }
+
         @Override
         public void paintNodes(Graphics g) {
                 if (root == null) {
