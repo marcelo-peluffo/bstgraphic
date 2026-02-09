@@ -9,6 +9,7 @@ import com.marcelo.ui.input.textbox.Textbox;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLOutput;
 
 public class UndoButton implements VisualComponent {
         private final JButton undoValueButton;
@@ -39,21 +40,9 @@ public class UndoButton implements VisualComponent {
                 undoValueButton.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                                String rawValue = valueTextbox.getText();
-                                if (rawValue == null || rawValue.trim().isEmpty()) {
-                                        return;
-                                }
-
-                                try {
-                                        int value = Integer.parseInt(rawValue.trim());
-                                        panel.undoValue();
-                                        valueTextbox.clear();
-                                } catch (NumberFormatException ex) {
-                                        JOptionPane.showMessageDialog(panel,
-                                                "Please enter a valid integer.",
-                                                "Invalid Input",
-                                                JOptionPane.ERROR_MESSAGE);
-                                }
+                                System.out.println("Clicked Undo Button.");
+                                panel.undoValue();
+                                valueTextbox.clear();
                         }
                 });
         }

@@ -95,7 +95,9 @@ public class GraphicBSTPanel extends JPanel {
         }
 
         public void undoValue() {
+                System.out.println("In Graphic BST Panel");
                 drawableBST.undo();
+                System.out.println("drawableBST.undo() complete");
                 repaint();
         }
 
