@@ -35,6 +35,7 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 if (backendBst == null) {
                         backendBst = new BinarySearchTree<>();
                 }
+                previousBackendBst = backendBst;
                 backendBst.insert(value);
                 rebuildRoot();
         }
@@ -43,6 +44,7 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 if (backendBst == null) {
                         return;
                 }
+                previousBackendBst = backendBst;
                 backendBst.delete(value);
                 rebuildRoot();
         }
