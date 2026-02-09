@@ -59,7 +59,7 @@ public class Textbox implements VisualComponent {
                 textField.addKeyListener(new KeyAdapter() {
                         @Override
                         public void keyPressed(KeyEvent e) {
-                                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
+                                if (e.getKeyCode() == KeyEvent.VK_TAB) {
                                         e.consume(); // Prevent the system beep
                                         String rawValue = getText();
                                         if (rawValue == null || rawValue.trim().isEmpty()) {
@@ -77,7 +77,7 @@ public class Textbox implements VisualComponent {
                                                                 JOptionPane.ERROR_MESSAGE);
                                         }
                                 }
-                                else if (e.getKeyCode() == KeyEvent.VK_TAB) {
+                                else if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
                                         e.consume(); // Prevent the system beep
                                         String rawValue = getText();
                                         if (rawValue == null || rawValue.trim().isEmpty()) {
@@ -86,7 +86,7 @@ public class Textbox implements VisualComponent {
 
                                         try {
                                                 int value = Integer.parseInt(rawValue.trim());
-                                                panel.undoValue(value);
+                                                panel.undoValue();
                                                 clear();
                                         } catch (NumberFormatException ex) {
                                                 JOptionPane.showMessageDialog(panel,

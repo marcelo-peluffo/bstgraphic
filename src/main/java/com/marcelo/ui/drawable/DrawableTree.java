@@ -26,5 +26,5 @@ public interface DrawableTree<T extends Comparable<T>> {
 
         void insert(T value);
         void delete(T value);
-        void undo(T value);
+        void undo();
 }
