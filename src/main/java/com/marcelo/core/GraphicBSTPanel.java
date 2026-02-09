@@ -5,6 +5,7 @@ import com.marcelo.ui.drawable.DrawableTree;
 import com.marcelo.ui.input.VisualComponent;
 import com.marcelo.ui.input.button.AddButton;
 import com.marcelo.ui.input.button.DeleteButton;
+import com.marcelo.ui.input.button.UndoButton;
 import com.marcelo.ui.input.textbox.Textbox;
 
 import javax.swing.*;
@@ -67,6 +68,7 @@ public class GraphicBSTPanel extends JPanel {
                 visualComponents.add(valueTextbox);
                 visualComponents.add(new AddButton(valueTextbox));
                 visualComponents.add(new DeleteButton(valueTextbox));
+                visualComponents.add(new UndoButton(valueTextbox));
         }
 
         private void setupListeners() {
