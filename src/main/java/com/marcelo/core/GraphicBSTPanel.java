@@ -5,6 +5,7 @@ import com.marcelo.ui.drawable.DrawableTree;
 import com.marcelo.ui.input.VisualComponent;
 import com.marcelo.ui.input.button.AddButton;
 import com.marcelo.ui.input.button.DeleteButton;
+import com.marcelo.ui.input.button.UndoButton;
 import com.marcelo.ui.input.textbox.Textbox;
 
 import javax.swing.*;
@@ -55,7 +56,7 @@ public class GraphicBSTPanel extends JPanel {
         private void loadBackgroundImage() {
                 try {
                         backgroundImage = ImageIO.read(getClass().getClassLoader()
-                                        .getResource("images/Background.jpg"));
+                                        .getResourceAsStream("images/Background.jpg"));
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
@@ -67,6 +68,7 @@ public class GraphicBSTPanel extends JPanel {
                 visualComponents.add(valueTextbox);
                 visualComponents.add(new AddButton(valueTextbox));
                 visualComponents.add(new DeleteButton(valueTextbox));
+                visualComponents.add(new UndoButton(valueTextbox));
         }
 
         private void setupListeners() {
@@ -91,6 +93,14 @@ public class GraphicBSTPanel extends JPanel {
                 drawableBST.delete(value);
                 repaint();
         }
+
+        public void undoValue() {
+                System.out.println("In Graphic BST Panel");
+                drawableBST.undo();
+                System.out.println("drawableBST.undo() complete");
+                repaint();
+        }
+
 
         @Override
         protected void paintComponent(Graphics g) {

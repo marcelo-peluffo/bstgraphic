@@ -3,6 +3,8 @@ package com.marcelo.backend.bst;
 import com.marcelo.backend.generic.Node;
 import com.marcelo.backend.generic.Tree;
 
+import java.util.Stack;
+
 /**
  * A generic implementation of a Binary Search Tree.
  *
@@ -171,6 +173,40 @@ public class BinarySearchTree<T extends Comparable<T>> implements Tree<T> {
     @Override
     public void postOrderTraversal() {
         postOrder(root);
+    }
+
+    /**
+     * Creates a deep copy of the tree.
+     * This ensures that each node in the cloned tree is a new object instance.
+     * * @return a new Tree instance with cloned nodes.
+     */
+    @Override
+    public Tree<T> clone() {
+        // 1. Create a new instance of the BST with the same settings
+        BinarySearchTree<T> clonedTree = new BinarySearchTree<>(this.maxDepth);
+
+        // 2. Recursively clone the node structure starting from the root
+        clonedTree.root = cloneNode(this.root);
+
+        return clonedTree;
+    }
+
+    /**
+     * Helper method to recursively copy each node.
+     */
+    private Node<T> cloneNode(Node<T> node) {
+        if (node == null) {
+            return null;
+        }
+
+        // Create a new node instance with the same value
+        Node<T> newNode = new BinarySearchTreeNode<>(node.getValue());
+
+        // Recursively set the left and right children to clones of the originals
+        newNode.setLeft(cloneNode(node.getLeft()));
+        newNode.setRight(cloneNode(node.getRight()));
+
+        return newNode;
     }
 
     private void postOrder(Node<T> node) {
