@@ -44,4 +44,6 @@ public interface Tree<T extends Comparable<T>> {
      * Performs a post-order traversal of the tree.
      */
     void postOrderTraversal();
+
+    Tree<T> clone();
 }

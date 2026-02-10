@@ -40,7 +40,7 @@ public class GraphicBSTIntroPanel extends JPanel {
         private void loadBackgroundImage() {
                 try {
                         backgroundImage = ImageIO.read(getClass().getClassLoader()
-                                        .getResource("images/Background.jpg"));
+                                        .getResourceAsStream("images/Background.jpg"));
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
@@ -78,9 +78,9 @@ public class GraphicBSTIntroPanel extends JPanel {
                 g2d.setFont(new Font("Courier New", Font.PLAIN, 25));
                 g2d.setColor(new Color(255, 255, 255));
                 String[] keybinds = {
-                                "ENTER   -    ADD a new node to the tree",
-                                "DELETE  -    REMOVE a selected node from the tree",
-                                "TAB     -    UNDO the last operation"
+                                "ENTER        -    ADD a new node to the tree",
+                                "DELETE       -    REMOVE a selected node from the tree",
+                                "ALT (Left)   -    UNDO the last operation"
                 };
 
                 int startX = (width - 600) / 2;

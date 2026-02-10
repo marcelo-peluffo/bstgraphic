@@ -1,6 +1,8 @@
 package com.marcelo.ui.drawable;
 
 import java.awt.Graphics;
+import java.util.EmptyStackException;
+import java.util.Stack;
 
 import com.marcelo.backend.bst.BinarySearchTree;
 import com.marcelo.backend.generic.Node;
@@ -8,6 +10,8 @@ import com.marcelo.backend.generic.Tree;
 
 public class DrawableBinarySearchTree<T extends Comparable<T>> implements DrawableTree<T> {
         private Tree<T> backendBst;
+        private Tree<T> previousBackendBst;
+        private Stack<Tree<T>> history;
         private DrawableNode<T> root;
         private int rootX;
         private int rootY;
@@ -16,23 +20,29 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
 
         public DrawableBinarySearchTree() {
                 backendBst = new BinarySearchTree<>();
+                previousBackendBst = null;
                 root = null;
                 rootX = 960;
                 rootY = 200;
                 horizontalSpacing = 450;
                 radius = 20;
+                history = new Stack<>();
         }
 
         public DrawableBinarySearchTree(Tree<T> backendBst) {
                 this();
                 this.backendBst = backendBst != null ? backendBst : new BinarySearchTree<>();
                 rebuildRoot();
+                history = new Stack<>();
         }
 
         public void insert(T value) {
                 if (backendBst == null) {
                         backendBst = new BinarySearchTree<>();
                 }
+
+                previousBackendBst = backendBst.clone();
+                history.push(previousBackendBst);
                 backendBst.insert(value);
                 rebuildRoot();
         }
@@ -41,7 +51,24 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 if (backendBst == null) {
                         return;
                 }
+
+                previousBackendBst = backendBst.clone();
+                history.push(previousBackendBst);
                 backendBst.delete(value);
+                rebuildRoot();
+        }
+
+        public void undo() {
+                if (backendBst == null) {
+                        return;
+                }
+
+                try {
+                        backendBst = history.pop();
+                } catch (EmptyStackException e) {
+                        previousBackendBst = null;
+                }
+
                 rebuildRoot();
         }
 
