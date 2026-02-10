@@ -1,6 +1,7 @@
 package com.marcelo.ui.drawable;
 
 import java.awt.Graphics;
+import java.util.Stack;
 
 import com.marcelo.backend.bst.BinarySearchTree;
 import com.marcelo.backend.generic.Node;
@@ -9,6 +10,7 @@ import com.marcelo.backend.generic.Tree;
 public class DrawableBinarySearchTree<T extends Comparable<T>> implements DrawableTree<T> {
         private Tree<T> backendBst;
         private Tree<T> previousBackendBst;
+        private Stack<Tree<T>> history;
         private DrawableNode<T> root;
         private int rootX;
         private int rootY;
@@ -23,12 +25,14 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 rootY = 200;
                 horizontalSpacing = 450;
                 radius = 20;
+                history = new Stack<>();
         }
 
         public DrawableBinarySearchTree(Tree<T> backendBst) {
                 this();
                 this.backendBst = backendBst != null ? backendBst : new BinarySearchTree<>();
                 rebuildRoot();
+                history = new Stack<>();
         }
 
         public void insert(T value) {
