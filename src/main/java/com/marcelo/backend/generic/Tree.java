@@ -45,5 +45,5 @@ public interface Tree<T extends Comparable<T>> {
      */
     void postOrderTraversal();
 
-    Tree<T>
+    Tree<T> clone();
 }
