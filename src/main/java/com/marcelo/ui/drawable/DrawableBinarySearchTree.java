@@ -1,6 +1,7 @@
 package com.marcelo.ui.drawable;
 
 import java.awt.Graphics;
+import java.util.EmptyStackException;
 import java.util.Stack;
 
 import com.marcelo.backend.bst.BinarySearchTree;
@@ -39,10 +40,9 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 if (backendBst == null) {
                         backendBst = new BinarySearchTree<>();
                 }
-                System.out.println(previousBackendBst);
-                System.out.println(backendBst);
 
-                previousBackendBst = backendBst;
+                previousBackendBst = backendBst.clone();
+                history.push(previousBackendBst);
                 backendBst.insert(value);
                 rebuildRoot();
         }
@@ -51,7 +51,9 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 if (backendBst == null) {
                         return;
                 }
-                previousBackendBst = backendBst;
+
+                previousBackendBst = backendBst.clone();
+                history.push(previousBackendBst);
                 backendBst.delete(value);
                 rebuildRoot();
         }
@@ -60,11 +62,13 @@ public class DrawableBinarySearchTree<T extends Comparable<T>> implements Drawab
                 if (backendBst == null) {
                         return;
                 }
-                System.out.println(previousBackendBst);
-                System.out.println(backendBst);
 
-                backendBst = previousBackendBst;
-                previousBackendBst = null;
+                try {
+                        backendBst = history.pop();
+                } catch (EmptyStackException e) {
+                        previousBackendBst = null;
+                }
+
                 rebuildRoot();
         }
 
