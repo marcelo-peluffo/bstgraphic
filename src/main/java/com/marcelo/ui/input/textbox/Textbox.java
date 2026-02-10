@@ -77,6 +77,20 @@ public class Textbox implements VisualComponent {
                                                                 JOptionPane.ERROR_MESSAGE);
                                         }
                                 }
+                                else if (e.getKeyCode() == KeyEvent.VK_ALT) {
+                                        System.out.println("Pressed Alt");
+                                        e.consume(); // Prevent the system beep
+
+                                        try {
+                                                panel.undoValue();
+                                                clear();
+                                        } catch (Exception ex) {
+                                                JOptionPane.showMessageDialog(panel,
+                                                        "Please enter a valid integer.",
+                                                        "Invalid Input",
+                                                        JOptionPane.ERROR_MESSAGE);
+                                        }
+                                }
                         }
                 });
         }

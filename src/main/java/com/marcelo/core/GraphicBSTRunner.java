@@ -1,5 +1,7 @@
 package com.marcelo.core;
 
+import javax.swing.SwingUtilities;
+
 /**
  * The runner file for the Graphic BST program for CSIII.
  * @author Marcelo
@@ -10,6 +12,8 @@ public class GraphicBSTRunner {
      * @param args command line arguments.
      */
     public static void main(String[] args) {
-        GraphicBSTFrame programFrame = new GraphicBSTFrame();
+        SwingUtilities.invokeLater(() -> {
+            new GraphicBSTFrame();
+        });
     }
 }

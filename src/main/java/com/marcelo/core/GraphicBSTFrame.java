@@ -7,6 +7,9 @@ import javax.swing.*;
  */
 public class GraphicBSTFrame extends JFrame {
 
+    private GraphicBSTPanel bstPanel;
+    private GraphicBSTIntroPanel bstIntroPanel;
+
     /**
      * Constructs the main frame of the application.
      */
@@ -19,9 +22,25 @@ public class GraphicBSTFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(1920, 800);
-        add(new GraphicBSTPanel());
+        bstPanel = new GraphicBSTPanel(this);
+        bstIntroPanel = new GraphicBSTIntroPanel(this);
+        add(new GraphicBSTIntroPanel(this));
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
+    public void switchToPanel(JPanel newPanel) {
+        getContentPane().removeAll();
+        getContentPane().add(newPanel);
+        getContentPane().revalidate();
+        getContentPane().repaint();
+    }
+
+    public GraphicBSTPanel getBSTPanel() {
+        return bstPanel;
+    }
+
+    public GraphicBSTIntroPanel getBstIntroPanel() {
+        return bstIntroPanel;
+    }
 }
