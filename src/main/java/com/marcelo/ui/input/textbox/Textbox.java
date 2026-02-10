@@ -59,7 +59,7 @@ public class Textbox implements VisualComponent {
                 textField.addKeyListener(new KeyAdapter() {
                         @Override
                         public void keyPressed(KeyEvent e) {
-                                if (e.getKeyCode() == KeyEvent.VK_TAB) {
+                                if (e.getKeyCode() == KeyEvent.VK_DELETE) {
                                         e.consume(); // Prevent the system beep
                                         String rawValue = getText();
                                         if (rawValue == null || rawValue.trim().isEmpty()) {
@@ -77,18 +77,14 @@ public class Textbox implements VisualComponent {
                                                                 JOptionPane.ERROR_MESSAGE);
                                         }
                                 }
-                                else if (e.getKeyCode() == KeyEvent.VK_SHIFT) {
+                                else if (e.getKeyCode() == KeyEvent.VK_ALT) {
+                                        System.out.println("Pressed Alt");
                                         e.consume(); // Prevent the system beep
-                                        String rawValue = getText();
-                                        if (rawValue == null || rawValue.trim().isEmpty()) {
-                                                return;
-                                        }
 
                                         try {
-                                                int value = Integer.parseInt(rawValue.trim());
                                                 panel.undoValue();
                                                 clear();
-                                        } catch (NumberFormatException ex) {
+                                        } catch (Exception ex) {
                                                 JOptionPane.showMessageDialog(panel,
                                                         "Please enter a valid integer.",
                                                         "Invalid Input",
